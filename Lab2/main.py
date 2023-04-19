@@ -16,3 +16,7 @@ if __name__ == '__main__':
     words = re.findall(constants.REGEX_WORDS, text)
     print("Количество слов:", len(words))
     print("Средняя длина слов в тексте:", task1.average_len(words))
+
+    n = input("Введите n и k:")
+    k = input()
+    print(task1.find_ngrams(words, int(n), int(k)))

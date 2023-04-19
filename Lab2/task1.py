@@ -31,3 +31,24 @@ def delete_abbreviations(text, sentences):
         sentences_len -= 2 * text.count(i)
 
     return sentences_len
+
+def find_ngrams(words, n = 4, k = 10):
+
+    ngrams = []
+    dict = {}
+
+    for word in range(len(words) - n + 1):
+        ngram = " ".join(words[word:word + n])
+        ngrams.append(ngram)
+
+    for ngram in ngrams:
+        if ngram in dict:
+            dict[ngram] += 1
+        else:
+            dict[ngram] = 1
+
+    sorted_dict = sorted(dict.items(), key=lambda k: k[1], reverse=True)
+    print(sorted_dict[:k])
+
+    return dict
+
