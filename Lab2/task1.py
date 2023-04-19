@@ -50,5 +50,5 @@ def find_ngrams(words, n = 4, k = 10):
     sorted_dict = sorted(dict.items(), key=lambda k: k[1], reverse=True)
     print(sorted_dict[:k])
 
-    return dict
+    return sorted_dict
 

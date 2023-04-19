@@ -19,4 +19,4 @@ if __name__ == '__main__':
 
     n = input("Введите n и k:")
     k = input()
-    print(task1.find_ngrams(words, int(n), int(k)))
+    task1.find_ngrams(words, int(n), int(k))
