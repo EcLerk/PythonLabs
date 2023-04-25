@@ -1,5 +1,5 @@
 from constants import REGEX_SENTENCES
-import task1
+from Task1 import task1
 import re
 
 def test_non_declarative1():
@@ -30,4 +30,4 @@ def test_delete_abbreviations2():
 
 def test_find_ngrams():
     words = ["what", "do", "you", "do", "you", "do"]
-    assert  task1.find_ngrams(words, 2, 2) == [('do you', 2), ('you do', 2), ('what do', 1)]
+    assert task1.find_ngrams(words, 2, 2) == [('do you', 2), ('you do', 2), ('what do', 1)]

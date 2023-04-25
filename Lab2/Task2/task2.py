@@ -12,14 +12,18 @@ class MyCollection:
         self.set.add(key)
 
     def remove(self, key):
-        self.set.remove(key)
+        if(key in self.set):
+            self.set.remove(key)
 
     def find(self, key):
         print(key if key in self.set else "No such element")
 
     def list(self):
-        for i in self.set:
-            print(i)
+        if(len(self.set) != 0):
+            for i in self.set:
+                print(i)
+        else:
+            print("Container is empty")
 
     def grep(self, regex):
         res = list(filter(lambda x: re.match(regex, x), self.set))
@@ -30,8 +34,11 @@ class MyCollection:
             json.dump(list(self.set), storage_file)
 
     def load(self):
-        with open(self.filename, "r") as storage_file:
-            self.set.update(json.load(storage_file))
+        if(os.path.exists(self.filename)):
+            with open(self.filename, "r") as storage_file:
+                self.set.update(json.load(storage_file))
+        else:
+            print("File doesn't exist")
 
     def switch(self, user):
         self.user = user
