@@ -14,6 +14,8 @@ class MyCollection:
     def remove(self, key):
         if(key in self.set):
             self.set.remove(key)
+        else:
+            print("No such element")
 
     def find(self, key):
         print(key if key in self.set else "No such element")
