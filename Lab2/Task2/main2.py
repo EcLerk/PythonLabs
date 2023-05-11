@@ -19,7 +19,7 @@ def main():
 
         match operation:
             case "add":
-                collection.add(input("Введите значение:"))
+                collection.add((input("Введите значение:")).split())
             case "remove":
                 collection.remove(input("Введите значение:"))
 

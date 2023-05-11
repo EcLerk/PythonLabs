@@ -9,7 +9,7 @@ class MyCollection:
         self.filename = f"{user}.json"
 
     def add(self, key):
-        self.set.add(key)
+        self.set.update(key)
 
     def remove(self, key):
         if(key in self.set):
