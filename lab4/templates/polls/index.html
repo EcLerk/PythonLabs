@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>This is main page!</h1>
-</body>
-</html>
+{% extends 'polls/base.html' %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    {% for i in drivers %}
+        <div class="alert alert-warning mt-2">
+            <h5>{{ i.name}} {{ i.surname }}</h5>
+
+        </div>
+    {% endfor %}
+{% endblock %}

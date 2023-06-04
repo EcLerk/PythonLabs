@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-
+from .models import Driver
 
 def index(request):
-    return render(request, 'polls/index.html')
+    drivers = Driver.objects.all()
+    return render(request, 'polls/index.html', {'title': 'Главная страница', 'drivers': drivers})
 # Create your views here.
