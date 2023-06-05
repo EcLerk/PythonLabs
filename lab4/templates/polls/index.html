@@ -4,10 +4,20 @@
 {% endblock %}
 
 {% block content %}
+
+    <h4>Список услуг:</h4>
+    {% for i in services %}
+        <div class="alert alert-warning mt-2">
+            <h5>{{ i.title}}</h5>
+            <p>{{ i.description }}</p>
+        </div>
+    {% endfor %}
+
+    <h4>Водители:</h4>
     {% for i in drivers %}
         <div class="alert alert-warning mt-2">
             <h5>{{ i.name}} {{ i.surname }}</h5>
-
         </div>
     {% endfor %}
+
 {% endblock %}
