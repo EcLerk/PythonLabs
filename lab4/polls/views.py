@@ -2,14 +2,15 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
-from .models import Driver, Service, Order
+from .models import Driver, Service, Order, Vehicle
 from .forms import *
 
 def index(request):
     services = Service.objects.all()
     drivers = Driver.objects.all()
+    vehicles = Vehicle.objects.all()
     return render(request, 'polls/index.html', {'title': 'Главная страница', 'drivers': drivers,
-                                                'services': services})
+                                                'services': services, 'vehicles': vehicles})
 
 
 def login(request):

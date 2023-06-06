@@ -13,10 +13,10 @@
         </div>
     {% endfor %}
 
-    <h4>Водители:</h4>
-    {% for i in drivers %}
+    <h4>Автомобили:</h4>
+    {% for i in vehicles %}
         <div class="alert alert-warning mt-2">
-            <h5>{{ i.name}} {{ i.surname }}</h5>
+            <h5>{{ i.brand}} {{ i.model}}, {{ i.year }}</h5>
         </div>
     {% endfor %}
 
