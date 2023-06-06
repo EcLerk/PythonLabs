@@ -1,11 +1,16 @@
 from django.shortcuts import render
 from .models import Driver, Service
-
+from .forms import *
 
 def index(request):
     services = Service.objects.all()
     drivers = Driver.objects.all()
     return render(request, 'polls/index.html', {'title': 'Главная страница', 'drivers': drivers,
                                                 'services': services})
-# Create your views here.
+
+
+def login(request):
+    return render(request, 'polls/../templates/registration/login.html')
+
+
 
