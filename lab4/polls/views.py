@@ -12,5 +12,6 @@ def index(request):
 def login(request):
     return render(request, 'polls/../templates/registration/login.html')
 
-
+def logged_out(request):
+    return render(request, 'registration/logged_out.html')
 
