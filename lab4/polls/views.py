@@ -31,6 +31,9 @@ def orders(request):
     return render(request, 'polls/orders.html', {'orders': orders})
 
 
+def order_success(request):
+    return render(request, 'polls/order_success.html')
+
 def create_order(request):
     form = OrderForm(request.POST)
     if request.method == 'POST':
@@ -47,7 +50,7 @@ def create_order(request):
             order.save()
             order.services.set(selected_values)
 
-            return render(request, 'home')
+            return render(request, 'polls/order_success.html')
         else:
             form = OrderForm()
 
