@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+
 from .models import Driver, Service
 from .forms import *
 
@@ -15,3 +18,7 @@ def login(request):
 def logged_out(request):
     return render(request, 'registration/logged_out.html')
 
+class SingUp(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'polls/signup.html'
