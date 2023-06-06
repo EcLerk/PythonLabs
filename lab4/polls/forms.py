@@ -1,7 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Client
+from django.core.validators import RegexValidator
+
+from .models import Client, Service, Order
 
 
 class registrationForm(UserCreationForm):
@@ -14,3 +16,8 @@ class registrationForm(UserCreationForm):
         user.save()
         client = Client(user=user)
         client.save()
+
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ['name', 'phone_number', 'services']

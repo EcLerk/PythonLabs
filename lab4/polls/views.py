@@ -30,3 +30,27 @@ def orders(request):
     orders = Order.objects.all()
     return render(request, 'polls/orders.html', {'orders': orders})
 
+
+def create_order(request):
+    form = OrderForm(request.POST)
+    if request.method == 'POST':
+
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            phone_number = form.cleaned_data['phone_number']
+            selected_values = form.cleaned_data['services']
+            order = Order()
+            #order = form.save(commit=False)
+
+            order.name = name
+            order.phone_number = phone_number
+            order.save()
+            order.services.set(selected_values)
+
+            return render(request, 'home')
+        else:
+            form = OrderForm()
+
+    return render(request, 'polls/create_order.html', {'form': form})
+
+

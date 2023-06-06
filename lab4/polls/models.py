@@ -34,9 +34,9 @@ class Order(models.Model):
   #  id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     orderDate = models.DateField('время заказа', auto_now=True)
     name = models.CharField('имя', max_length=20, default='USER')
-    phone_number = models.CharField('номер телефона', validators=[RegexValidator(r'^\+?375?\d{9}$',
+    phone_number = models.CharField('номер телефона', validators=[RegexValidator(r'^\+375?\d{9}$',
                                                                      "Phone number must be entered in the format: '+999999999'")],
-                                    max_length=12, default='+375441111111')
+                                    max_length=13, default='+375441111111')
 
     services = models.ManyToManyField(Service)
 
