@@ -69,6 +69,10 @@ def services(request):
     services = Service.objects.all()
     drivers = Driver.objects.all()
     vehicles = Vehicle.objects.all()
-    return render(request, 'polls/services.html', {'title': 'Главная страница', 'drivers': drivers,
+    return render(request, 'polls/services.html', {'title': 'Услуги', 'drivers': drivers,
                                                 'services': services, 'vehicles': vehicles})
+
+
+def about_us(request):
+    return render(request, 'polls/about_us.html', {'title': 'О нас'})
 

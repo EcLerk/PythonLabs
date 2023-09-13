@@ -30,5 +30,6 @@ urlpatterns = [
     path('createorder', create_order, name='create_order'),
     path('ordersuccess/', order_success, name='order_success'),
     path('dogs/', show_dog, name='dogs'),
-    path('services/', services, name='services')
+    path('services/', services, name='services'),
+    path('about/', about_us, name='about')
 ]
