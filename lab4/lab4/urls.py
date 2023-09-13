@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from polls.views import index, SingUp, orders, create_order, order_success
+from polls.views import *
 from django.contrib.auth import views as auth_views
 
 
@@ -28,5 +28,7 @@ urlpatterns = [
     path('singup/', SingUp.as_view(), name='singup'),
     path('orders/', orders, name='orders'),
     path('createorder', create_order, name='create_order'),
-    path('ordersuccess/', order_success, name='order_success')
+    path('ordersuccess/', order_success, name='order_success'),
+    path('dogs/', show_dog, name='dogs'),
+    path('services/', services, name='services')
 ]

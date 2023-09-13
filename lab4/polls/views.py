@@ -1,3 +1,4 @@
+import requests
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
@@ -57,4 +58,17 @@ def create_order(request):
 
     return render(request, 'polls/create_order.html', {'form': form})
 
+def show_dog(request):
+    resp = requests.get('https://dog.ceo/api/breeds/image/random')
+
+    img_url = resp.json()['message']
+    print(img_url)
+    return render(request, 'polls/dogs.html', {'img_url': img_url})
+
+def services(request):
+    services = Service.objects.all()
+    drivers = Driver.objects.all()
+    vehicles = Vehicle.objects.all()
+    return render(request, 'polls/services.html', {'title': 'Главная страница', 'drivers': drivers,
+                                                'services': services, 'vehicles': vehicles})
 
